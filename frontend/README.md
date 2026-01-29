@@ -33,8 +33,7 @@ TODO_APP/
 ├── backend/
 │ ├── models/
 │ │ └── todo.js
-│ ├── routes/
-│ │ └── todoRoutes.js
+│ 
 │ ├── app.js
 │ ├── package.json
 │

@@ -1,62 +1,54 @@
 
-
 body {
   margin: 0;
-  background: #f2f4f8;
-  font-family: Arial, sans-serif;
-}
+  background: #f2f4f8;}
 
 .app {
   max-width: 500px;
   margin: 50px auto;
-  background: #ffffff;
+  background:black;
   padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-size: larger;
 }
 
 .app h2 {
   text-align: center;
   margin-bottom: 20px;
+  color: white;
 }
 
-.input-row {
+.form {
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
-.input-row input {
-  flex: 1;
+.form input {
+  width: 500px;
+  display: flex;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-.input-row button {
-  padding: 10px 16px;
-  background: #007bff;
-  color: white;
+.form button {
+ background-color: yellow;
+ color: black;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.input-row button:hover {
-  background: #0056b3;
-}
-
 .todo-list {
   padding-left: 20px;
+  color:white ;
+  
 }
-
 .todo-item {
   background: #f9f9f9;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 6px;
+  margin-bottom: 22px;
+  background-color: black;
 }
-
 .todo-title {
   font-weight: bold;
 }
@@ -71,20 +63,24 @@ body {
   margin: 4px 0;
 }
 
-.todo-actions button {
+ button {
   margin-right: 8px;
   padding: 6px 10px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
 .complete-btn {
-  background: #28a745;
+ background-color: blue;
   color: white;
 }
 
 .delete-btn {
-  background: #dc3545;
+  background: red;
   color: white;
+}
+.com{
+  color: green;
+  margin-left: 30px;
+  font-size: large;
 }

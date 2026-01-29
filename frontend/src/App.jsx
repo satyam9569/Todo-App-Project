@@ -4,55 +4,47 @@ import "./App.css";
 function App() {
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState("");
-
-  const ShowTodo = async () => {
-    const res = await axios.get("http://localhost:5000/api/todos");
-    setTodos(res.data);
-  };
-
+  
+async function ShowTodo(){
+  const res = await axios.get("http://localhost:5000/todos");
+  setTodos(res.data);
+}
   useEffect(() => {
     ShowTodo();
   }, []);
 
-  const addTodo = async () => {
-    await axios.post("http://localhost:5000/api/todos", { title });
+  async function addTodo(id){
+    await axios.post("http://localhost:5000/todos", { title });
     setTitle("");
     ShowTodo();
-  };
+  }
 
-  const completeTodo = async (id) => {
-    await axios.put(`http://localhost:5000/api/todos/${id}`);
+  async function completeTodo (id){
+    await axios.put(`http://localhost:5000/todos/${id}`);
     ShowTodo();
-  };
+  }
 
-  const deleteTodo = async (id) => {
-    await axios.delete(`http://localhost:5000/api/todos/${id}`);
+  async function deleteTodo(id){
+    await axios.delete(`http://localhost:5000/todos/${id}`);
     ShowTodo();
-  };
-
+  }
   return (
-
 <div className="app">
   <h2>Todo App</h2>
-
-  <div className="input-row">
+    <form onSubmit={addTodo} className="form">
     <input
       value={title}
       onChange={(e) => setTitle(e.target.value)}
       placeholder="Enter todo"
+      required
     />
-    <button onClick={addTodo}>Add</button>
-  </div>
-
+      <button>Add</button>
+    </form>
   <ol className="todo-list">
     {todos.map((todo) => (
       <li key={todo._id} className="todo-item">
-        <div
-          className={`todo-title ${
-            todo.completed ? "completed" : ""
-          }`}
-        >
-          {todo.title} {todo.completed ? "✅" : ""}
+        <div>
+          {todo.title} {todo.completed ? <span className="com">✔</span> : ""}
         </div>
 
         <div className="todo-date">
@@ -60,12 +52,15 @@ function App() {
         </div>
 
         <div className="todo-actions">
+          {todo.completed ? "":
           <button
-            className="complete-btn"
-            onClick={() => completeTodo(todo._id)}
-          >
-            Complete
-          </button>
+          className="complete-btn"
+          onClick={() => completeTodo(todo._id)}
+        >
+          Complete
+        </button>
+        }
+          
           <button
             className="delete-btn"
             onClick={() => deleteTodo(todo._id)}
